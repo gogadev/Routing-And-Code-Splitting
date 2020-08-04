@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.nav-img {
+  margin-top: 1rem;
+  width: 40%;
+}
+
+.list {
+  width: 90vw;
+  background: rgb(248, 246, 246);
+  padding: 0.4rem;
+  outline: 1px solid rgb(231, 231, 231);
+  outline-offset: 2px;
+}
+
+.item {
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  color: grey;
+}
+
+@media only screen and (max-width: 800px) {
+  .nav-img {
+    width: 60%;
+  }
+}

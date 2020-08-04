@@ -1,0 +1,36 @@
+.home {
+  text-transform: capitalize;
+}
+
+.banner-img {
+  width: 90vw;
+  background: rgb(219, 219, 219);
+  outline: 1px solid lightgrey;
+  outline-offset: -5px;
+}
+
+.banner-image {
+  width: 27%;
+}
+
+.title {
+  font-weight: 200;
+  margin-top: 1rem;
+  letter-spacing: 5px;
+}
+
+.text {
+  color: grey;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  letter-spacing: 3px;
+}
+
+@media only screen and (max-width: 800px) {
+  .banner-image {
+    width: 70%;
+  }
+}

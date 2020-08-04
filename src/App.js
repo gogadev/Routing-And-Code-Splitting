@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from "react";
 
-function App() {
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+
+import Navbar from "./components/navbar/Navbar";
+import Countries from "./pages/countries/Countries";
+
+import "./App.css";
+
+const Home = lazy(() => import("./pages/home/Home"));
+const Favourites = lazy(() => import("./pages/favourites/Favourites"));
+const NotFound = lazy(() => import("./pages/not-found/NotFound"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense
+      fallback={
+        <div className="container">
+          <h2>Loading...</h2>
+        </div>
+      }
+    >
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/countries" component={Countries} />
+          <Route path="/favourites" component={Favourites} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+    </Suspense>
   );
-}
+};
 
 export default App;
